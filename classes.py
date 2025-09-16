@@ -2,11 +2,11 @@ class Item:
     def __init__(self, titulo: str, codigo: int, emprestado: bool = False):
         self.__titulo = titulo
         self.__codigo = codigo
-        self.__emprestado = False
+        self.__emprestado = emprestado
 #Classe Item que foi pedido no projeto com todas as suas devidas funções de possuir, título, código e status de emprestado.
 #--------------------------------------------------
     def __repr__(self):
-        return f'Item("{self.titulo}", "{self.codigo}")'
+        return f'Item("{self.__titulo}", "{self.__codigo}")'
 #O método mágico '__repr__' (representação) é usado para criar uma string,que representa o objeto.
 #Dessa forma ele irá imprimir o título e o código do item quando for chamado.
 #--------------------------------------------------

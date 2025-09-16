@@ -5,23 +5,23 @@ from classes import *
 #e importando as bibliotecas os e time para usar comandos do sistema operacional
 #--------------------------------------------------
 dicionario_filme={
-    1 : Filme ( titulo = "Duna", duracao = 166, genero = "Ficção Cientifica"),
-    2 : Filme ( titulo = "Vingadores: Ultimato", duracao = 181, genero = "Ficção Cientifica"),
-    3 : Filme ( titulo = "Invocação do Mal ", duracao = 112, genero = "Terror"),
-    4 : Filme ( titulo = "Invocação do Mal 2", duracao = 134, genero = "Terror"),
-    5 : Filme ( titulo = "Velozes e Furiosos", duracao = 106, genero = "Ação"),
-    6 : Filme ( titulo = "Velozes e Furiosos 2", duracao = 107, genero = "Ação"),
+    1 : Filme ( titulo = "Duna", duracao = 166, codigo=1,genero = "Ficção Cientifica"),
+    2 : Filme ( titulo = "Vingadores: Ultimato", duracao = 181, codigo=2, genero = "Ficção Cientifica"),
+    3 : Filme ( titulo = "Invocação do Mal ", duracao = 112, codigo=3, genero = "Terror"),
+    4 : Filme ( titulo = "Invocação do Mal 2", duracao = 134, codigo=4, genero = "Terror"),
+    5 : Filme ( titulo = "Velozes e Furiosos", duracao = 106, codigo=5, genero = "Ação"),
+    6 : Filme ( titulo = "Velozes e Furiosos 2", duracao = 107, codigo=6, genero = "Ação"),
     }
 #Aqui estão armazenados os filmes que a locadora possui, 
 #com seus respectivos IDs, títulos, durações e gêneros.
 #--------------------------------------------------
 dicionario_jogo={ 
-    1 : Jogo ( titulo = "Hollow Knight", plataforma = "PC", classificacao = "Livre"),
-    2 : Jogo ( titulo = "Hollow Knight: Silksong", plataforma = "PC", classificacao = "Livre"),
-    3 : Jogo ( titulo = "Grand Theft Auto V", plataforma = "Console", classificacao = "+18"),
-    4 : Jogo ( titulo = "Elden Ring", plataforma = "Console", classificacao = "+16"),
-    5 : Jogo ( titulo = "Overcooked 2", plataforma = "Console", classificacao = "Livre"),
-    6 : Jogo ( titulo = "Sekiro: Shadows Die Twice", plataforma = "PC", classificacao = "+17"),}
+    1 : Jogo ( titulo = "Hollow Knight", codigo=1, plataforma = "PC", classificacao = "Livre"),
+    2 : Jogo ( titulo = "Hollow Knight: Silksong", codigo=2, plataforma = "PC", classificacao = "Livre"),
+    3 : Jogo ( titulo = "Grand Theft Auto V",codigo=3,  plataforma = "Console", classificacao = "+18"),
+    4 : Jogo ( titulo = "Elden Ring", codigo=4, plataforma = "Console", classificacao = "+16"),
+    5 : Jogo ( titulo = "Overcooked 2", codigo=5, plataforma = "Console", classificacao = "Livre"),
+    6 : Jogo ( titulo = "Sekiro: Shadows Die Twice", codigo=6, plataforma = "PC", classificacao = "+17"),}
 #Aqui estão armazenados os jogos que a locadora possui, 
 #com seus respectivos IDs, títulos, plataformas e classificações.
 #--------------------------------------------------
@@ -35,7 +35,7 @@ def cadastrar_cliente():
     novo_id = max(dicionario_clientes.keys(), default=0) + 1
     novo_cliente=Cliente(nome, cpf) 
     dicionario_clientes[novo_id]= novo_cliente 
-    print(f"Novo cliente adicionado! Segue o ID:\n{novo_id}")
+    print(f"Novo cliente adicionado! \nSegue o ID:{novo_id}")
     time.sleep(2)
     os.system("cls")
 #Aqui está a função para cadastrar um cliente, onde o usuário irá inserir
