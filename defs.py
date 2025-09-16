@@ -1,6 +1,8 @@
 import os
 import time
 from classes import *
+#Estamos importando as classes que criamos no arquivo classes.py
+#e importando as bibliotecas os e time para usar comandos do sistema operacional
 #--------------------------------------------------
 dicionario_filme={
     1 : Filme ( titulo = "Duna", duracao = 166, genero = "Ficção Cientifica"),
@@ -10,6 +12,8 @@ dicionario_filme={
     5 : Filme ( titulo = "Velozes e Furiosos", duracao = 106, genero = "Ação"),
     6 : Filme ( titulo = "Velozes e Furiosos 2", duracao = 107, genero = "Ação"),
     }
+#Aqui estão armazenados os filmes que a locadora possui, 
+#com seus respectivos IDs, títulos, durações e gêneros.
 #--------------------------------------------------
 dicionario_jogo={ 
     1 : Jogo ( titulo = "Hollow Knight", plataforma = "PC", classificacao = "Livre"),
@@ -18,8 +22,11 @@ dicionario_jogo={
     4 : Jogo ( titulo = "Elden Ring", plataforma = "Console", classificacao = "+16"),
     5 : Jogo ( titulo = "Overcooked 2", plataforma = "Console", classificacao = "Livre"),
     6 : Jogo ( titulo = "Sekiro: Shadows Die Twice", plataforma = "PC", classificacao = "+17"),}
+#Aqui estão armazenados os jogos que a locadora possui, 
+#com seus respectivos IDs, títulos, plataformas e classificações.
 #--------------------------------------------------
 dicionario_clientes={}
+#Aqui está o dicionário que irá armazenar os clientes que forem cadastrados na locadora.
 #--------------------------------------------------
 def cadastrar_cliente():
     print("Para adicionar um cliente, preencha as informações:")
@@ -28,9 +35,11 @@ def cadastrar_cliente():
     novo_id = max(dicionario_clientes.keys(), default=0) + 1
     novo_cliente=Cliente(nome, cpf) 
     dicionario_clientes[novo_id]= novo_cliente 
-    print(f"Novo cliente adicionado!{novo_id}")
+    print(f"Novo cliente adicionado! Segue o ID:\n{novo_id}")
     time.sleep(2)
     os.system("cls")
+#Aqui está a função para cadastrar um cliente, onde o usuário irá inserir
+#seu nome e cpf, e o sistema irá gerar um ID único para o cliente.
 #-------------------------------------------------
 def remover_cliente():
     print("Remover Cliente")
@@ -39,6 +48,8 @@ def remover_cliente():
     os.system("cls")
     print(f"Cliente {remover_id} removido com sucesso! ")
     os.system("pause")
+#Aqui está a função para remover um cliente, onde o usuário irá inserir
+#o ID do cliente que deseja remover, e o sistema irá deletar o cliente do dicionário.
 #-------------------------------------------------
 def emprestar_filme():
     id_filme = int(input("Digite o ID do filme que deseja emprestar: ")) 
@@ -51,10 +62,13 @@ def emprestar_filme():
         else:
             print(f'O filme "{Filme.getTitulo()}" já está emprestado.') 
     else:
-        print("ID não encontrado!")
+        print("\nID não encontrado!")
 
     os.system("pause")
     os.system("cls")
+#Aqui está a função para emprestar um filme, onde o usuário irá inserir
+#o ID do filme que deseja emprestar, e o sistema irá verificar se o filme está
+#disponível ou não, e atualizar o status de emprestado do filme.
 #-------------------------------------------------
 def emprestar_jogo():
     id_jogo = int(input("Digite o ID do jogo que deseja emprestar: ")) 
@@ -71,6 +85,9 @@ def emprestar_jogo():
 
     os.system("pause")
     os.system("cls")
+#Aqui está a função para emprestar um jogo, onde o usuário irá inserir
+#o ID do jogo que deseja emprestar, e o sistema irá verificar se o jogo está
+#disponível ou não, e atualizar o status de emprestado do jogo.
 #-------------------------------------------------
 def devolver_filme():
     id_filme = int(input("Digite o ID do filme que deseja devolver: ")) 
@@ -87,6 +104,9 @@ def devolver_filme():
 
     os.system("pause")
     os.system("cls")
+#Aqui está a função para devolver um filme, onde o usuário irá inserir
+#o ID do filme que deseja devolver, e o sistema irá verificar se o filme está
+#emprestado ou não, e atualizar o status de emprestado do filme.
 #-------------------------------------------------
 def devolver_jogo():
     id_jogo = int(input("Digite o ID do jogo que deseja devolver: ")) 
@@ -103,6 +123,9 @@ def devolver_jogo():
 
     os.system("pause")
     os.system("cls")
+#Aqui está a função para devolver um jogo, onde o usuário irá inserir
+#o ID do jogo que deseja devolver, e o sistema irá verificar se o jogo está
+#emprestado ou not, e atualizar o status de emprestado do jogo.
 #-------------------------------------------------
 def listar_todos():
     os.system("cls")
@@ -114,9 +137,11 @@ def listar_todos():
     print("\nJogos:")
     for id_jogo, jogo in dicionario_jogo.items():
         print(f"ID: {id_jogo} | Título: {jogo.getTitulo()}")
-
+    
     os.system("pause")
     os.system("cls")
+#Aqui está a função para listar todos os filmes e jogos disponíveis na locadora,
+#mostrando o ID e o título de cada um.
 #-------------------------------------------------
 def listar_emprestado():
     encontrados = False
@@ -136,7 +161,10 @@ def listar_emprestado():
             encontrados = True
 
     if not encontrados:
-        print("Nenhum filme ou jogo emprestado no momento.")
+        print("\nNenhum filme ou jogo emprestado no momento.\n")
     
     os.system("pause")
     os.system("cls")
+#Aqui está a função para listar todos os filmes e jogos que estão emprestados,
+#mostrando o ID e o título de cada um. Se nenhum estiver emprestado, uma mensagem
+#é exibida informando isso.

@@ -77,6 +77,7 @@ while True:
             os.system("cls")
             exit()
         case _:
+
             print("Opção inválida!")
             time.sleep(2)
             os.system("cls")
